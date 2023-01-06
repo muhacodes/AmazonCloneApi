@@ -18,16 +18,30 @@ from django.urls import path
 from .views import (
     ProductApiView,
     CategoryApiView,
-    ProductUpdateDeleteApiView
+    ProductUpdateDeleteApiView,
+    ProductCategoryRetrieve,
+    ProductCategoryRetrieve,
+    CategoryUpdateDeleteApiView
 )
 
 urlpatterns = [
 
+    # get or post a category
+    path('category', CategoryApiView.as_view(),),
+
+    path('category/<int:pk>', CategoryUpdateDeleteApiView.as_view(),),
+
+    # Methods ['get', 'post'] for products
     path('product', ProductApiView.as_view(),),
 
+    # retrieve product
     path('product/<int:pk>', ProductUpdateDeleteApiView.as_view(),),
-    
+
+    path('product/category/<int:category>/', ProductCategoryRetrieve.as_view(), name='product-category-detail'),
+
+    # path('product/category/<int:pk>', ProductCategoryRetrieve.as_view(),),
+
+    # deelte product
     path('product/delete/<int:pk>', ProductUpdateDeleteApiView.as_view(),),
 
-    path('category', CategoryApiView.as_view(),),
 ]
