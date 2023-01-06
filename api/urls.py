@@ -21,7 +21,8 @@ from .views import (
     ProductUpdateDeleteApiView,
     ProductCategoryRetrieve,
     ProductCategoryRetrieve,
-    CategoryUpdateDeleteApiView
+    CategoryUpdateDeleteApiView,
+    ProductCreate
 )
 
 urlpatterns = [
@@ -33,6 +34,8 @@ urlpatterns = [
 
     # Methods ['get', 'post'] for products
     path('product', ProductApiView.as_view(),),
+
+    path('product/create', ProductCreate.as_view(),),
 
     # retrieve product
     path('product/<int:pk>', ProductUpdateDeleteApiView.as_view(),),
