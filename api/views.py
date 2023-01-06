@@ -33,8 +33,8 @@ class CategoryApiView(ListCreateAPIView):
 
 
 class CategoryUpdateDeleteApiView(RetrieveUpdateDestroyAPIView):
-    serializer_class = ProductSerializer
-    queryset = Product.objects.all()
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
     
 
 class ProductApiView(ListCreateAPIView):
