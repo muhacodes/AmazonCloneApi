@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import obtain_auth_token
 from .views import (
     ProductApiView,
     CategoryApiView,
@@ -22,7 +23,7 @@ from .views import (
     ProductCategoryRetrieve,
     ProductCategoryRetrieve,
     CategoryUpdateDeleteApiView,
-    ProductCreate
+    ProductCreate,
 )
 
 urlpatterns = [
@@ -46,5 +47,7 @@ urlpatterns = [
 
     # deelte product
     path('product/delete/<int:pk>', ProductUpdateDeleteApiView.as_view(),),
+
+    path('token', obtain_auth_token),
 
 ]
